@@ -19,5 +19,5 @@ var q = url.searchParams.get("q");
 
 
 function goToGoogle(){
-	window.location.replace("http://google.com/search?q=" + c);
+	window.location.replace("http://google.com/search?q=" + q);
 }
