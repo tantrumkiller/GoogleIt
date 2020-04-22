@@ -2,7 +2,7 @@
 // @name     Add GoogleIt Button
 // @version  1
 // @grant    none
-// @include  https://duckduckgo.com/*
+// @include  https://duckduckgo.*/*
 // ==/UserScript==
 
 var input=document.createElement("input");
@@ -15,9 +15,13 @@ document.body.appendChild(input);
 
 var url_string = location.href
 var url = new URL(url_string);
-var q = url.searchParams.get("q");
+var query = url.searchParams.get("q");
 
 
 function goToGoogle(){
-	window.location.replace("http://google.com/search?q=" + q);
+  if(!query) {
+  	window.location.replace("http://google.com");
+  } else {
+    window.location.replace("http://google.com/search?q=" + query);
+  }
 }
